@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Lista de Canciones {% endblock title %}
+{% block content %}
+    <h1> Lista de Canciones </h1>
+
+    <p>
+        <a href="{% url 'crear_libro' %}"> Nuevo</a> 
+    </p>
+
+    <ul>
+        {% for cancion in canciones %}
+            <li>
+                {{ cancion.nombre }} - {{ cancion.autor }} ({{ cancion.publicado }}) 
+                |   <a href="{% url 'editar_cancion' cancion.pk %}"> editar </a>
+                |   <a href="{% url 'eliminar_cancion' cancion.pk %}"> eliminar </a>
+            </li>
+        {% empty %}
+            <li> No hay canciones registradas. </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

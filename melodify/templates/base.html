@@ -10,12 +10,17 @@
 <body>
   <nav class="nav">
     <a href="{% url 'home' %}">Inicio</a>
+    <a href="{% url 'listar_canciones' %}">canciones</a>
+    
     <div class="spacer"></div>
     {% if user.is_authenticated %}
       <span>Hola, {{ user.username }}</span>
-      <a href="https://youtube.com">Salir</a>
+      <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Salir</button>
+      </form>
     {% else %}
-      <a href="https://youtube.com">Ingresar</a>
+      <a href="{% url 'login' %}">Ingresar</a>
     {% endif %}
   </nav>
 

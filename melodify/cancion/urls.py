@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from .views import HomeView , CustomLoginView
+from .views import listar_canciones, crear_libro, eliminar_cancion, editar_cancion
 
 urlpatterns = [
-    path('', HomeView.as_view(), name = 'home'),
-    path('registration/', include('django.contrib.auth.urls')),
-    path('login/', CustomLoginView.as_view(), name='login'),
+    path('listar_canciones', listar_canciones, name = 'listar_canciones'),
+    path('crear', crear_libro, name="crear_libro"),
+    path('eliminar/<int:pk>', eliminar_cancion, name="eliminar_cancion"),
+    path('editar/<int:pk>', editar_cancion, name="editar_cancion"),
+    
+    
 ]

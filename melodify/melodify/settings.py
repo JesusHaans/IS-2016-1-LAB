@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inicio_sesion',
+    'cancion',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# URL para Auth
+LOGIN_URL = 'login'                 # nombre provisto por django.contrib.auth.urls
+LOGIN_REDIRECT_URL = 'home'         # a dónde ir tras iniciar sesión
+LOGOUT_REDIRECT_URL = 'home'       # a dónde ir tras cerrar sesión

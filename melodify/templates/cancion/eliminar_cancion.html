@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Eliminar Cancion {% endblock title %}
+{% block content %}
+    <h1>Eliminar Cancion</h1>
+    <p> ¿Seguro que deseas eliminar <strong> {{ cancion.nombre }} </strong> de {{ cancion.autor }}? </p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Si, eliminar</button>
+        <a href="{% url 'listar_canciones' %}">Cancelar</a>
+    </form>
+{% endblock content %}
