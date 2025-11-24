@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-z!hqj^qu3y&8p2(7+06ljhj%o)+--cz^@k@yj-5=)(*c3f+l&a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ingenieriasoftware.haanslopez.com", "www.ingenieriasoftware.haanslopez.com", "82.197.93.17","127.0.0.1","localhost"]
 
 
 # Application definition
@@ -70,7 +71,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'melodify.wsgi.application'
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [ BASE_DIR / 'static']
+STATICFILES_DIRS = [ BASE_DIR / 'static']       # tus archivos locales (para desarrollo)
+STATIC_ROOT = BASE_DIR / 'staticfiles'          # carpeta donde collectstatic los reunirá (para producción)
 
 
 # Database
